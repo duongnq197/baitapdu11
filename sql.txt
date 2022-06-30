@@ -1,0 +1,36 @@
+insert into dbtest.permission(permission_name) values ("manager");
+insert into dbtest.permission(permission_name) values ("staff");
+insert into dbtest.permission(permission_name) values ("admin");
+
+//Create User
+ POST: http://localhost:8081/createUser
+{
+    "name": "nguyen van b",
+    "permissions": [
+        {
+            "name": "manager"
+        },
+        {
+            "name": "staff"
+        }
+    ]
+}
+
+//getUserByPermission
+http://localhost:8081/getUser
+header: perms
+
+
+
+//updateUser:
+
+http://localhost:8081/updateUser
+
+{   
+    "id":1,
+    "name": "nguyen van c"
+}
+
+
+//delete:
+http://localhost:8081/deleteUser/2
